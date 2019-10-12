@@ -18,9 +18,18 @@ class ViewController: UIViewController {
         ref.child("someid/hanna").setValue(["age":12])
         ref.childByAutoId().setValue(["age":"12"])
         
-        ref.child("someid").observeSingleEvent(of: .value) { (DataSnapshot) in
-            let name = snapshot
+        ref.child("someid/andy/age").observeSingleEvent(of: .value) { (snapshot) in
+            let name = snapshot.value as? String
+            print(name)
         }
+        ref.child("someid/andy").observeSingleEvent(of: .value, with: { (snapshot) in
+            let andyData = snapshot.value as? [String:Any]
+            print(andyData)
+        }) { (Error) in
+            
+        }
+        
+        
         
         
     }
