@@ -1,0 +1,6 @@
+framework module Pods_codewchris {
+  umbrella header "Pods-codewchris-umbrella.h"
+
+  export *
+  module * { export * }
+}
